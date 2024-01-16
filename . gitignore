@@ -1,0 +1,44 @@
+
+# .gitignore
+thinking-case-409512-8e7147443ac2.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+
+# Virtual Environment
+venv/
+env/
+.env/
+
+# Docker
+.dockerignore
+docker-compose.yml
+Dockerfile
+docker-image-tag
+
+# Kubernetes
+/k8s/*.yaml
+
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+terraform.tfvars
+
+# Ignore override files as they are usually used to override resources locally and do not need to be checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+
