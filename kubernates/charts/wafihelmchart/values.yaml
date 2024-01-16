@@ -1,3 +1,4 @@
+appNamespace: app
 appName: wafi-app
 appImage: root0877/wafi_app
 appVersion: latest
