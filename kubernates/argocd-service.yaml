@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-server
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "false"  # Set to "true" if using internal LoadBalancer
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: argocd-server
+
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wafi-app
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: /kubernates/charts/wafihelmchart
+    repoURL: 'git@github.com:jahswilling/eks_demo.git'
+    targetRevision: main
+  sources: []
+  project: wafi
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
