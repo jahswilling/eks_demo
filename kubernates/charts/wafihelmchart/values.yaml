@@ -11,4 +11,4 @@ containerEnvVars:
   value: "valuetwo"  
 
 servicePort: 80
-serviceType: LoadBalancer
+serviceType: ClusterIP
