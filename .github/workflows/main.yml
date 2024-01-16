@@ -3,7 +3,7 @@ name: Deploy to wafi Kubernetes cluster
 on:
   push:
     branches:
-      - development
+      - main
 
 jobs:
   deploy:
