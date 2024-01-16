@@ -27,7 +27,18 @@ spec:
           requests:
             memory: "128Mi"
             cpu: "100m"
-
+        livenessProbe:
+          httpGet:
+            path: /api/health/
+            port: {{ .Values.containerPort }}
+          initialDelaySeconds: 3
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /api/health/
+            port: {{ .Values.containerPort }}
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
         {{- range .Values.containerEnvVars }}
         - name: {{ .name }}
